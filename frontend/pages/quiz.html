@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JEE PYQ Quiz | Smart Student</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .quiz-wrapper {
+      max-width: 600px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .quiz-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .quiz-header h1 {
+      font-size: 1.75rem;
+      margin: 0;
+    }
+
+    .btn-outline {
+      padding: 8px 16px;
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: var(--bg-body);
+      border-color: var(--text-muted);
+    }
+
+    .quiz-box {
+      background: var(--bg-card);
+      padding: 32px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+    }
+
+    #subjectSection h3 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 1.25rem;
+    }
+
+    .subject-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .subject-btn {
+      padding: 16px;
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: left;
+    }
+
+    .subject-btn:hover {
+      border-color: var(--primary-color);
+      background: #fdfdfd;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Quiz Flow */
+    #quizSection h3 {
+      margin-top: 0;
+      font-size: 1.25rem;
+      line-height: 1.5;
+    }
+
+    #quizSection .q-meta {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed var(--border-color);
+    }
+
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .option-label {
+      display: flex;
+      align-items: center;
+      padding: 16px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all 0.2s;
+      background: #fdfdfd;
+    }
+
+    .option-label:hover {
+      background: var(--bg-body);
+      border-color: var(--text-muted);
+    }
+
+    .option-label input {
+      margin-right: 16px;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="quiz-wrapper">
+    <div class="quiz-header">
+      <h1>Practice Quizzes</h1>
+      <button class="btn-outline" onclick="location.href='dashboard.html'">Exit</button>
+    </div>
+
+    <div class="quiz-box">
+      <!-- SUBJECT SELECTION -->
+      <div id="subjectSection">
+        <h3>Choose your battle</h3>
+        <div class="subject-grid">
+          <button class="subject-btn" onclick="selectSubject('Mathematics')">📐 Mathematics</button>
+          <button class="subject-btn" onclick="selectSubject('Physics')">⚛️ Physics</button>
+          <button class="subject-btn" onclick="selectSubject('Chemistry')">🧪 Chemistry</button>
+        </div>
+      </div>
+
+      <!-- CHAPTER SELECTION -->
+      <div id="chapterSection" class="hidden" style="display: none;">
+        <h3>Select Chapter</h3>
+        <div class="subject-grid" id="chapters"></div>
+        <button class="btn-outline" style="margin-top: 16px;" onclick="location.reload()">Back</button>
+      </div>
+
+      <!-- QUIZ SECTION -->
+      <div id="quizSection" class="hidden" style="display: none;">
+        <div id="quizBox"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/pages/quiz.js"></script>
+</body>
+
+</html>

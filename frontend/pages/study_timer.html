@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Timer | Smart Student</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .timer-wrapper {
+      max-width: 600px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .timer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .timer-header h1 {
+      font-size: 1.75rem;
+      margin: 0;
+    }
+
+    .btn-outline {
+      padding: 8px 16px;
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: var(--bg-body);
+      border-color: var(--text-muted);
+    }
+
+    .timer-box {
+      background: var(--bg-card);
+      padding: 40px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      text-align: center;
+    }
+
+    /* Mode Toggles */
+    .mode-toggle {
+      display: inline-flex;
+      background: var(--bg-body);
+      padding: 4px;
+      border-radius: var(--radius-md);
+      margin-bottom: 32px;
+    }
+
+    .mode-btn {
+      padding: 8px 20px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      background: transparent;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .mode-btn.active {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Digital Display */
+    .display {
+      font-size: 5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      font-family: monospace;
+      letter-spacing: -2px;
+      margin-bottom: 40px;
+      line-height: 1;
+    }
+
+    /* Controls */
+    .controls {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .btn-play {
+      background: var(--primary-color);
+      color: white;
+      padding: 12px 32px;
+      font-size: 1.1rem;
+      border-radius: var(--radius-md);
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .btn-play:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .btn-stop {
+      background: var(--bg-body);
+      color: var(--text-primary);
+      padding: 12px 24px;
+      font-size: 1.1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .btn-stop:hover {
+      background: #fdfdfd;
+      border-color: var(--text-muted);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="timer-wrapper">
+    <div class="timer-header">
+      <h1>Study Timer</h1>
+      <button class="btn-outline" onclick="window.location.href='dashboard.html'">Exit</button>
+    </div>
+
+    <div class="timer-box">
+      <div class="mode-toggle">
+        <button class="mode-btn active" id="modeStopwatch">Stopwatch</button>
+        <button class="mode-btn" id="modestudy_timer">study_timer</button>
+      </div>
+
+      <div class="display" id="timeDisplay">00:00:00</div>
+
+      <div class="controls">
+        <button class="btn-play" id="startBtn">Start</button>
+        <button class="btn-stop" id="stopBtn">Stop</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/pages/study_timer.js"></script>
+</body>
+
+</html>

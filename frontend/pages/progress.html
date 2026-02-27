@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Progress | Smart Student</title>
+    <link rel="stylesheet" href="../css/progress.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="dashboard-wrap">
+        <header class="dashboard-header">
+            <div>
+                <h1>Your Analytics Center</h1>
+                <p class="subtitle">Track your mastery and optimize your learning</p>
+            </div>
+            <button class="btn-back" onclick="location.href='dashboard.html'">
+                Back to Dashboard
+            </button>
+        </header>
+
+        <div id="loading-state" class="state-container">
+            <div class="spinner"></div>
+            <p>Loading analytics...</p>
+        </div>
+
+        <div id="empty-state" class="state-container hidden">
+            <div class="empty-icon">📊</div>
+            <h2>No Data Yet</h2>
+            <p>Complete some quizzes to see your analytics here!</p>
+            <button class="btn-primary" onclick="location.href='quiz.html'">Take a Quiz</button>
+        </div>
+
+        <main id="dashboard-grid" class="bento-grid hidden">
+
+            <!-- Summary Stats: Total Attempts, Overall Accuracy, Streak -->
+            <div class="bento-item stat-card">
+                <div class="stat-icon emerald">🎯</div>
+                <div class="stat-info">
+                    <span class="stat-label">Total Attempts</span>
+                    <span class="stat-val" id="val-attempts">-</span>
+                </div>
+            </div>
+
+            <div class="bento-item stat-card">
+                <div class="stat-icon cyan">⚡</div>
+                <div class="stat-info">
+                    <span class="stat-label">Overall Accuracy</span>
+                    <span class="stat-val" id="val-accuracy">-</span>
+                </div>
+            </div>
+
+            <div class="bento-item stat-card">
+                <div class="stat-icon orange">🔥</div>
+                <div class="stat-info">
+                    <span class="stat-label">Current Streak</span>
+                    <span class="stat-val" id="val-streak">-</span>
+                </div>
+            </div>
+
+            <!-- Focus Item (Wide) -->
+            <div class="bento-item span-col-3 alert-card" id="card-alert">
+                <div class="alert-content" id="alert-content">
+                </div>
+            </div>
+
+            <!-- Subject Mastery Bars -->
+            <div class="bento-item span-col-2">
+                <h3>Subject Mastery</h3>
+                <div id="subject-bars-container" class="bars-container"></div>
+            </div>
+
+            <!-- Subject Distribution Pie -->
+            <div class="bento-item flex-center">
+                <h3>Distribution</h3>
+                <div class="chart-wrapper pie-wrapper">
+                    <canvas id="subjectPieChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Performance Trend Line -->
+            <div class="bento-item span-col-3">
+                <h3>Performance Trend</h3>
+                <div class="chart-wrapper line-wrapper">
+                    <canvas id="trendChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Focus & Weakness -->
+            <div class="bento-item">
+                <h3>Focus This Week</h3>
+                <div class="list-container" id="focus-list"></div>
+            </div>
+
+            <div class="bento-item">
+                <h3>Revision Needed</h3>
+                <div class="list-container" id="revision-list"></div>
+            </div>
+
+            <div class="bento-item">
+                <h3>30-Day Activity</h3>
+                <div id="heatmap" class="heatmap-grid"></div>
+            </div>
+
+            <!-- Chapter Breakdown Table -->
+            <div class="bento-item span-col-3">
+                <h3>Chapter Breakdown</h3>
+                <div class="table-container">
+                    <table class="modern-table">
+                        <thead>
+                            <tr>
+                                <th>Subject</th>
+                                <th>Chapter</th>
+                                <th>Attempts</th>
+                                <th>Accuracy</th>
+                                <th>Level</th>
+                            </tr>
+                        </thead>
+                        <tbody id="chapter-tbody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+    <script src="../js/pages/progress.js"></script>
+</body>
+
+</html>

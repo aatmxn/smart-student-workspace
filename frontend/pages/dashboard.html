@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Smart Student</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+  <div class="dashboard">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+      <div class="account">
+        <div class="avatar">👨‍🎓</div>
+        <div id="name" class="username">Loading...</div>
+      </div>
+
+      <nav class="menu">
+        <button onclick="location.href='profile.html'">Profile</button>
+        <button onclick="location.href='study_timer.html'">Study Timer</button>
+        <button onclick="location.href='todo.html'">To-Do List</button>
+        <button onclick="location.href='quiz.html'">Quizzes</button>
+        <button onclick="location.href='progress.html'">Analytics & Progress</button>
+      </nav>
+
+      <button id="logoutBtn" class="logout">Log out</button>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+      <div class="dashboard-content">
+        <!-- Welcome Banner -->
+        <div class="welcome-banner">
+          <h1 class="welcome-title">Welcome back, <span id="welcomeName">Student</span>! 👋</h1>
+          <p class="welcome-subtitle">Ready to conquer your goals today?</p>
+        </div>
+
+        <!-- Motivational Quotes -->
+        <div class="quote-container">
+          <p id="dailyQuote" class="quote-text">"Loading inspiration..."</p>
+        </div>
+
+        <!-- Quick-Start Tiles -->
+        <h2 class="section-title">Quick Actions</h2>
+        <div class="quick-grid">
+          <div class="quick-card" onclick="location.href='quiz.html'">
+            <div class="quick-icon">🧠</div>
+            <div class="quick-info">
+              <h3>Take a Random Quiz</h3>
+              <p>Test your knowledge instantly.</p>
+            </div>
+          </div>
+          <div class="quick-card" onclick="location.href='progress.html'">
+            <div class="quick-icon">📊</div>
+            <div class="quick-info">
+              <h3>Review Your Strongest and Weakest Chapters</h3>
+              <p>Focus on areas needing improvement.</p>
+            </div>
+          </div>
+          <div class="quick-card" onclick="location.href='flashcards.html'">
+            <div class="quick-icon">✨</div>
+            <div class="quick-info">
+              <h3>Formula Flashcards</h3>
+              <p>Master JEE formulas.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script src="../js/pages/dashboard.js"></script>
+</body>
+
+</html>

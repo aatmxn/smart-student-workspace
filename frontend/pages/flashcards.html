@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEE Formulas | Smart Student</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .flashcard-wrapper {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .fc-header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .fc-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+
+        .fc-btn-back {
+            padding: 10px 20px;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .fc-btn-back:hover {
+            border-color: var(--text-muted);
+            background: var(--bg-body);
+        }
+
+        .formula-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            width: 100%;
+        }
+
+        .formula-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .formula-subject {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: var(--radius-full);
+            background: var(--bg-body);
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .formula-concept {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 8px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .formula-math {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="flashcard-wrapper">
+        <div class="fc-header">
+            <h1 class="fc-title">JEE Formula Sheet</h1>
+            <button class="fc-btn-back" onclick="location.href='dashboard.html'">Back to Dashboard</button>
+        </div>
+
+        <!-- Formula Grid populated dynamically -->
+        <div class="formula-grid" id="formulaGrid">
+            <!-- injected via js -->
+        </div>
+
+    </div>
+
+    <script src="../js/pages/flashcards.js"></script>
+</body>
+
+</html>
