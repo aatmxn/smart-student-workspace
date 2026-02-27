@@ -164,11 +164,6 @@ Open `frontend/index.html` in your browser or serve via a local server.
 - Self-driven learners who want structured study
 - Students who want data — not guesswork — driving their preparation
 
----
-
-## 📄 License
-
-MIT License — see [LICENSE](LICENSE) for details.
 
 ---
 
