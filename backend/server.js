@@ -11,8 +11,16 @@ mongoose.set("bufferCommands", false);
 
 // Create app
 const app = express();
+
 app.use(cors());
 app.use(express.json());
+
+// Serve static files from the frontend directory
+const path = require("path");
+app.use(express.static(path.join(__dirname, "../frontend")));
+
+// Specific route for pages if needed, but static should cover it
+app.use("/pages", express.static(path.join(__dirname, "../frontend/pages")));
 
 // Routes
 app.use("/api/auth", require("./routes/auth"));
@@ -25,7 +33,7 @@ app.get("/", (req, res) => {
 async function startServer() {
   try {
     await mongoose.connect(process.env.MONGO_URI, {
-      serverSelectionTimeoutMS: 5000, // fail fast
+      serverSelectionTimeoutMS: 5000,
     });
 
     console.log("MongoDB connected successfully");
@@ -35,7 +43,7 @@ async function startServer() {
     });
   } catch (error) {
     console.error("❌ MongoDB connection failed:", error);
-    process.exit(1); // force crash if DB not usable
+    process.exit(1);
   }
 }
 
