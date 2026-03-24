@@ -12,7 +12,7 @@ if (!token) {
   window.location.href = "../login.html";
 }
 
-fetch("http://localhost:5000/api/auth/profile", {
+fetch("${BASE_URL}/api/auth/profile", {
   headers: {
     Authorization: "Bearer " + token
   }
