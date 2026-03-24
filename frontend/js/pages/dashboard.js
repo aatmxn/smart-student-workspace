@@ -1,8 +1,8 @@
- (function() {
+(function() {
   const token = localStorage.getItem("token");
   if (!token) {
-    history.replaceState(null, "", "/pages/login.html");
-    window.location.replace("/pages/login.html");
+    history.replaceState(null, "", "/login.html");
+    window.location.replace("/login.html");
   }
 })();
 
@@ -73,7 +73,7 @@ const logoutBtn = document.getElementById("logoutBtn");
 if (logoutBtn) {
   logoutBtn.addEventListener("click", () => {
     localStorage.removeItem("token");
-    history.pushState(null, "", "/pages/login.html");
-    window.location.replace("/pages/login.html");
+    history.pushState(null, "", "/login.html");
+    window.location.replace("/login.html");
   });
 }

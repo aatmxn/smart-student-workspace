@@ -1,8 +1,8 @@
 (function() {
   const token = localStorage.getItem("token");
   if (!token) {
-    history.replaceState(null, "", "/pages/login.html");
-    window.location.replace("/pages/login.html");
+    history.replaceState(null, "", "/login.html");
+    window.location.replace("/login.html");
   }
 })();
 

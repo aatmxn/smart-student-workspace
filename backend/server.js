@@ -17,7 +17,11 @@ mongoose.set("bufferCommands", false);
 // App
 const app = express();
 app.use(cors({
-  origin: "https://smart-student-workspace.vercel.app/"
+  origin: [
+    "https://smart-student-workspace.vercel.app",
+    "http://localhost:5000",
+    "http://127.0.0.1:5000",
+  ],
 }));
 app.use(express.json());
 
@@ -41,12 +45,6 @@ app.use("/pages", express.static(path.join(__dirname, "../frontend/pages")));
 
 // Auth routes
 app.use("/api/auth", require("./routes/auth"));
-
-// Landing page (home is pages/index.html)
-app.get("/", (req, res) => {
-  res.redirect("/pages/index.html");
-});
-
 
 //HELPER: COUNT SIGNIFICANT FIGURES
 
