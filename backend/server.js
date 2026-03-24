@@ -40,9 +40,9 @@ app.use("/pages", express.static(path.join(__dirname, "../frontend/pages")));
 // Auth routes
 app.use("/api/auth", require("./routes/auth"));
 
-// Test route
+// Landing page (home is pages/index.html)
 app.get("/", (req, res) => {
-  res.send("Hello from the backend!");
+  res.redirect("/pages/index.html");
 });
 
 
