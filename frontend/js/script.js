@@ -29,7 +29,7 @@ document.querySelector("form").addEventListener("submit", function (e) {
 
         localStorage.setItem("token", data.token);
 
-        window.location.href = "dashboard.html";
+        window.location.replace("/pages/dashboard.html");
       } else {
         errorMsg.innerText = data.message || "Login failed";
       }

@@ -369,4 +369,8 @@ async function startServer() {
   }
 }
 
+app.get(/.*/, (req, res) => {
+  res.redirect("/");
+});
+
 startServer();

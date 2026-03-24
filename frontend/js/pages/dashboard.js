@@ -1,3 +1,16 @@
+ (function() {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    history.replaceState(null, "", "/pages/login.html");
+    window.location.replace("/pages/login.html");
+  }
+})();
+
+history.pushState(null, "", window.location.href);
+window.addEventListener("popstate", function() {
+  history.pushState(null, "", window.location.href);
+});
+
 const quotes = [
   `"Discipline is choosing between what you want now and what you want most." — Abraham Lincoln`,
   `"The man who moves a mountain begins by carrying away small stones." — Confucius`,
@@ -60,6 +73,7 @@ const logoutBtn = document.getElementById("logoutBtn");
 if (logoutBtn) {
   logoutBtn.addEventListener("click", () => {
     localStorage.removeItem("token");
-    window.location.href = "../login.html";
+    history.pushState(null, "", "/pages/login.html");
+    window.location.replace("/pages/login.html");
   });
 }

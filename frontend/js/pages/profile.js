@@ -1,3 +1,11 @@
+(function() {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    history.replaceState(null, "", "/pages/login.html");
+    window.location.replace("/pages/login.html");
+  }
+})();
+
 const token = localStorage.getItem("token");
 
 if (!token) {
@@ -40,5 +48,6 @@ document.getElementById("backBtn").addEventListener("click", () => {
 // Logout
 document.getElementById("logoutBtn").addEventListener("click", () => {
   localStorage.removeItem("token");
-  window.location.href = "../login.html";
+  history.pushState(null, "", "/pages/login.html");
+  window.location.replace("/pages/login.html");
 });

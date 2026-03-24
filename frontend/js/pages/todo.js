@@ -1,3 +1,11 @@
+(function() {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    history.replaceState(null, "", "/pages/login.html");
+    window.location.replace("/pages/login.html");
+  }
+})();
+
 const taskInput = document.getElementById("taskInput");
 const addTaskBtn = document.getElementById("addTaskBtn");
 const taskList = document.getElementById("taskList");

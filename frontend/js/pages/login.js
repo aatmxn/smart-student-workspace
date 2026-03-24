@@ -36,7 +36,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     localStorage.setItem("token", data.token);
 
     // ✅ GO TO DASHBOARD
-    window.location.href = "pages/dashboard.html";
+    window.location.replace("/pages/dashboard.html");
 
   } catch {
     errorMsg.innerText = "Server error. Try again.";

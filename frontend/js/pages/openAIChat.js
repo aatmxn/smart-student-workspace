@@ -1,3 +1,11 @@
+(function() {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    history.replaceState(null, "", "/pages/login.html");
+    window.location.replace("/pages/login.html");
+  }
+})();
+
 // OPTIONAL: only if you are using same-page sections
 function openAIChat() {
   document.getElementById("aiSection").style.display = "block";

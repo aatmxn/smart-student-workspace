@@ -1,3 +1,11 @@
+(function() {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    history.replaceState(null, "", "/pages/login.html");
+    window.location.replace("/pages/login.html");
+  }
+})();
+
 // State
 let mode = 'stopwatch'; // 'stopwatch' or 'study_timer'
 let totalSeconds = 0;

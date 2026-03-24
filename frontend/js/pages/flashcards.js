@@ -1,3 +1,11 @@
+(function() {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    history.replaceState(null, "", "/pages/login.html");
+    window.location.replace("/pages/login.html");
+  }
+})();
+
 const flashcardData = [
     { subject: "Physics", concept: "Kinetic Energy", formula: "K.E. = ½mv²" },
     { subject: "Physics", concept: "Newton's Second Law", formula: "F = ma" },
