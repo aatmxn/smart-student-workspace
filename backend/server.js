@@ -16,7 +16,9 @@ mongoose.set("bufferCommands", false);
 
 // App
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: "https://smart-student-workspace.vercel.app/"
+}));
 app.use(express.json());
 
 // Groq setup

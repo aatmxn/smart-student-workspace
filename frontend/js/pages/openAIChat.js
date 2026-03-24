@@ -54,7 +54,7 @@ async function sendMessage(event) {
       formData.append("image", file);
     }
 
-    const res = await fetch("${BASE_URL}/api/ai/chat", {
+    const res = await fetch(`${BASE_URL}/api/ai/chat`, {
       method: "POST",
       body: formData,
     });

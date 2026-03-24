@@ -32,7 +32,7 @@ if (!token) {
 } else {
 
   // ===== FETCH USER PROFILE ONLY IF TOKEN EXISTS =====
-  fetch("http://localhost:5000/api/auth/profile", {
+  fetch(`${BASE_URL}/api/auth/profile`, {
     headers: {
       Authorization: "Bearer " + token
     }
