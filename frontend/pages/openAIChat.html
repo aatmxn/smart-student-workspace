@@ -2,22 +2,213 @@
 <html lang="en">
 
 <head>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI CHAT</title>
+  <title>AI Help | Smart Student</title>
   <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .chat-wrapper {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      height: 90vh;
+    }
+
+    .chat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .chat-header h1 {
+      font-size: 1.75rem;
+      margin: 0;
+    }
+
+    .btn-outline {
+      padding: 8px 16px;
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: var(--bg-body);
+      border-color: var(--text-muted);
+    }
+
+    .chat-box-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-card);
+      padding: 32px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+    }
+
+    #chatBox {
+      flex: 1;
+      overflow-y: auto;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-right: 10px;
+    }
+
+    /* Scrollbar styling for chat box */
+    #chatBox::-webkit-scrollbar {
+      width: 6px;
+    }
+    #chatBox::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    #chatBox::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 4px;
+    }
+
+    .user-msg {
+      align-self: flex-end;
+      background: var(--primary-color);
+      color: #fff;
+      padding: 12px 16px;
+      border-radius: 16px 16px 0 16px;
+      max-width: 80%;
+      word-wrap: break-word;
+    }
+
+    .ai-msg {
+      align-self: flex-start;
+      background: transparent;
+      color: var(--text-primary);
+      padding: 4px 0;
+      max-width: 95%;
+      word-wrap: break-word;
+      border: none;
+      line-height: 1.5;
+    }
+    
+    .ai-msg p {
+      margin: 0 0 10px 0;
+    }
+    .ai-msg p:last-child {
+      margin-bottom: 0;
+    }
+    .ai-msg pre {
+      background: #2d2d2d;
+      color: #fff;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+      margin: 10px 0;
+    }
+    .ai-msg code {
+      font-family: monospace;
+      background: #e2e8f0;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      color: #dc2626;
+    }
+    .ai-msg pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+    }
+
+    .input-group {
+      display: flex;
+      gap: 12px;
+      margin-top: auto;
+      align-items: center;
+      background: var(--bg-card);
+    }
+
+    .input-group input[type="text"] {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      font-size: 1rem;
+    }
+
+    .input-group input[type="file"] {
+      max-width: 260px;
+      font-size: 0.9rem;
+      padding: 8px;
+      color: gray;
+      cursor: pointer;
+    }
+
+    .input-group input[type="file"]::file-selector-button {
+      padding: 8px 16px;
+      margin-right: 12px;
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .input-group input[type="file"]::file-selector-button:hover {
+      border-color: var(--text-muted);
+      background: #fdfdfd;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .input-group button {
+      width: auto;
+      white-space: nowrap;
+      padding: 12px 24px;
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: opacity 0.2s;
+    }
+
+    .input-group button:hover {
+      opacity: 0.9;
+    }
+  </style>
 </head>
 
 <body>
 
-    <div id="aiSection">
+  <div class="chat-wrapper" id="aiSection">
+    <div class="chat-header">
+      <h1>AI Help</h1>
+      <button class="btn-outline" onclick="window.location.href='dashboard.html'">Exit</button>
+    </div>
+
+    <div class="chat-box-container">
         <div id="chatBox"></div>
 
-        <input type="file" id="imageInput" placeholder="image"/>
-        <input type="text" id="messageInput" placeholder="Ask your JEE doubt..." />
-
-        <button type="button" onclick="sendMessage(event)">Send</button>
+        <div class="input-group">
+            <input type="file" id="imageInput" placeholder="image"/>
+            <input type="text" id="messageInput" placeholder="Ask your JEE doubt..." />
+            <button type="button" onclick="sendMessage(event)">Send</button>
+        </div>
     </div>
+  </div>
 
   <script src="../js/pages/openAIChat.js"></script>
 </body>

@@ -510,3 +510,47 @@ li button:hover {
   display: inline-block;
   color: white;
 }
+
+.ai-msg h2 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 8px 0 4px;
+  color: #93c5fd;
+}
+
+.ai-msg strong {
+  color: #e2e8f0;
+}
+
+.ai-msg p {
+  margin: 4px 0;
+}
+
+.ai-msg code {
+  background: #0f172a;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+.ai-msg li {
+  background: transparent !important;
+  border: none !important;
+  padding: 2px 0 !important;
+  margin: 3px 0 !important;
+  list-style: disc !important;
+  color: white !important;
+  display: list-item !important;
+}
+
+.ai-msg ul {
+  background: transparent !important;
+  border: none !important;
+  padding-left: 20px !important;
+}
+
+.ai-msg {
+  min-height: 30px;
+  color: white !important;
+}

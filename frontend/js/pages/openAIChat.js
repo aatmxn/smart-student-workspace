@@ -63,9 +63,10 @@ async function sendMessage(event) {
     loadingDiv.remove();
 
     // Show AI response (with formatting)
-    chatBox.innerHTML += `
-      <div class="ai-msg">${data.reply.replace(/\n/g, "<br>")}</div>
-    `;
+    const aiDiv = document.createElement("div");
+    aiDiv.className = "ai-msg";
+    aiDiv.innerHTML = marked.parse(data.reply);
+    chatBox.appendChild(aiDiv);
 
   } catch (err) {
     console.error("Frontend Error:", err);
@@ -82,7 +83,8 @@ async function sendMessage(event) {
 
   // Clear inputs
   messageInput.value = "";
-  fileInput.value = "";
+  const newFileInput = fileInput.cloneNode(true);
+  fileInput.parentNode.replaceChild(newFileInput, fileInput);
 }
 
 
@@ -91,6 +93,7 @@ async function sendMessage(event) {
 // =======================
 document.getElementById("messageInput").addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
+    e.preventDefault();
     sendMessage(e);
   }
 });
