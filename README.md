@@ -1,6 +1,6 @@
 <h1 align="center"> Smart Student Workspace </h1>
 
-<p align="center"> 🚀 Transforming Raw Codebases into Professional Documentation through AI-Powered Intelligence </p>
+<p> 🚀 🚀 The Ultimate AI-Powered Academic Hub: Bridging JEE Preparation and Professional AI Help. </p>
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
@@ -17,6 +17,7 @@
 - [🔭 Overview](#-overview)
 - [✨ Key Features](#-key-features)
 - [🛠️ Tech Stack & Architecture](#-tech-stack--architecture)
+- [🎯 Modules Breakdown](#-modules-breakdown)
 - [📁 Project Structure](#-project-structure)
 - [🚀 Getting Started](#-getting-started)
 - [🔧 Usage](#-usage)
