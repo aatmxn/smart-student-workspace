@@ -40,14 +40,17 @@ The system is built upon a robust **RESTful API** architecture powered by **Expr
 
 ## ✨ Key Features
 
-Smart Student Workspace is packed with features designed to maximize user productivity and documentation quality:
+Smart Student Workspace is packed with features designed to maximize user productivity :
 
-- 🤖 **AI-Driven Chat Interface:** Interact directly with an intelligent documentation assistant through a dedicated chat endpoint. The AI understands context and helps tailor README content to specific project needs.
-- 🚀 **Automated Structure Analysis:** The system identifies repository patterns and file hierarchies to automatically populate the technical sections of your documentation, ensuring 100% accuracy in your project tree.
-- 🔒 **Secure Identity Management:** Integrated authentication protocols ensure that your documentation history and project workspace remain private and accessible only to authorized users.
-- ⚡ **Rapid Documentation Delivery:** What traditionally takes hours of manual writing and formatting is now reduced to seconds. Get a complete, well-structured README file in a single click.
-- 📱 **Intuitive User Workspace:** A unified environment where users can track their documentation progress, view history, and manage multiple repository projects simultaneously.
-- 🔍 **OCR Integration Readiness:** Prepared with backend capabilities to handle visual data processing, potentially allowing for documentation generation from screenshots or whiteboards.
+- 🔐 **Secure Authentication** — JWT-based signup & login with bcrypt password hashing
+- 🏠 **Unified Dashboard** — Central hub for all modules, animated with Three.js + GSAP
+- 🧪 **JEE Quiz Engine** — Chapter-wise MCQs for Physics, Chemistry, and Mathematics with instant feedback
+- 📊 **Analytics & Progress Tracking** — Visual performance charts via Chart.js tracking scores across subjects and sessions
+- 🤖 **AI Chat Tutor** — Groq LLaMA-powered doubt solver that accepts both text and image input
+- ⏱️ **Pomodoro Study Timer** — Focus session timer to structure and track study hours
+- 🔢 **Formula Flashcards** — Quick-access reference cards for key JEE formulae across PCM
+- ✅ **To-Do Manager** — Daily task planner to organise study goals
+- 💬 **Motivation Quotes** — Daily prompts to maintain consistency
 
 ---
 
@@ -162,8 +165,8 @@ Before beginning, ensure you have the following installed on your local machine:
 1.  **Clone the Repository**
 
     ```bash
-    git clone https://github.com/your-username/smart-student-workspace.git
-    cd aatmxn-smart-student-workspace-15fc358
+    git clone https://github.com/aatmxn/smart-student-workspace.git
+    cd smart-student-workspace
     ```
 
 2.  **Install Backend Dependencies**
@@ -185,37 +188,6 @@ Before beginning, ensure you have the following installed on your local machine:
     Since the project uses a standard HTML/JS structure, you can open `frontend/index.html` in your preferred web browser or use a live server extension.
 
 ---
-
-## 🔧 Usage
-
-The Smart Student Workspace operates primarily through its intelligent API. Below is the core interaction method for generating content.
-
-### AI Chat Endpoint
-
-The heart of the documentation engine is the `/api/ai/chat` endpoint. This allows users to send project context and receive structured documentation output.
-
-**Endpoint:** `POST /api/ai/chat`
-
-**Request Example:**
-
-```json
-{
-  "message": "Generate a detailed README overview for a project that uses Express.js and provides an AI chat interface.",
-  "context": {
-    "projectName": "Smart Student Workspace",
-    "techStack": ["Express", "Node.js"]
-  }
-}
-```
-
-**Response Example:**
-
-```json
-{
-  "reply": "## Project Overview\n\nThis project is a high-performance workspace designed to...",
-  "status": "success"
-}
-```
 
 ### Key Workflow
 
