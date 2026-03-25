@@ -20,8 +20,7 @@
 - [🎯 Modules Breakdown](#-modules-breakdown)
 - [📁 Project Structure](#-project-structure)
 - [🚀 Getting Started](#-getting-started)
-- [🔧 Usage](#-usage)
-- [🤝 Contributing](#-contributing)
+- [Key Workflow](#-key-workflow)
 - [📝 License](#-license)
 
 ---
