@@ -198,46 +198,6 @@ Before beginning, ensure you have the following installed on your local machine:
 
 ---
 
-## 🤝 Contributing
-
-We welcome contributions to improve the Smart Student Workspace! Your input helps make this project better for students and developers worldwide.
-
-### How to Contribute
-
-1.  **Fork the repository** - Click the 'Fork' button at the top right of this page.
-2.  **Create a feature branch**
-    ```bash
-    git checkout -b feature/amazing-feature
-    ```
-3.  **Make your changes** - Improve code, documentation, or design.
-4.  **Test thoroughly** - Ensure all API endpoints and UI components function correctly.
-5.  **Commit your changes** - Write clear, descriptive commit messages.
-    ```bash
-    git commit -m 'Add: Implementation of repository analysis logic'
-    ```
-6.  **Push to your branch**
-    ```bash
-    git push origin feature/amazing-feature
-    ```
-7.  **Open a Pull Request** - Submit your changes for review by the maintainers.
-
-### Development Guidelines
-
-- ✅ Follow the existing code style and conventions used in `server.js` and `script.js`.
-- 📝 Add comments for complex logic, especially in the AI interaction handlers.
-- 🧪 Ensure that any new API routes are properly documented and secured.
-- 📚 Update the project tree in the README if you add new files or directories.
-- 🎯 Keep your pull requests focused on a single feature or bug fix.
-
-### Ideas for Contributions
-
-- 🐛 **Bug Fixes:** Help us identify and squash bugs in the authentication flow.
-- ✨ **New Features:** Implement more granular repository analysis templates.
-- 📖 **Documentation:** Enhance the inline code comments and helper guides.
-- 🎨 **UI/UX:** Improve the responsiveness of the dashboard and chat interface.
-
----
-
 ## 📝 License
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for complete details.
