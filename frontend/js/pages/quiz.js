@@ -3451,7 +3451,7 @@ window.handleOptionSelect = function (selectedIndex) {
 };
 
 // ---------- FINISH ----------
-function finishQuiz() {
+async function finishQuiz() {
   // SAVE RESULT
   const result = {
     subject: selectedSubject,
@@ -3461,9 +3461,26 @@ function finishQuiz() {
     date: new Date().toISOString()
   };
 
-  let progressData = JSON.parse(localStorage.getItem("progressData")) || [];
-  progressData.push(result);
-  localStorage.setItem("progressData", JSON.stringify(progressData));
+  const token = localStorage.getItem("token");
+  try {
+    const response = await fetch(`${BASE_URL}/api/progress`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
+      },
+      body: JSON.stringify(result)
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to save quiz result");
+    }
+  } catch (error) {
+    // Fallback prevents data loss if network/API is temporarily unavailable.
+    let progressData = JSON.parse(localStorage.getItem("progressData")) || [];
+    progressData.push(result);
+    localStorage.setItem("progressData", JSON.stringify(progressData));
+  }
 
   document.getElementById("quizBox").innerHTML = `
     <h2>Quiz Completed 🎉</h2>

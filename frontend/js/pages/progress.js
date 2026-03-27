@@ -6,7 +6,7 @@
   }
 })();
 
-const progressData = JSON.parse(localStorage.getItem("progressData")) || [];
+let progressData = [];
 
 /* =========================
    ANALYTICS ENGINE
@@ -189,16 +189,65 @@ function buildAnalytics(data) {
    RUN ENGINE
 ========================= */
 
-const analytics = buildAnalytics(progressData);
+let analytics = null;
 
 /* =========================
    UI RENDERING
 ========================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
     const loadingState = document.getElementById("loading-state");
     const emptyState = document.getElementById("empty-state");
     const dashboardGrid = document.getElementById("dashboard-grid");
+
+    const token = localStorage.getItem("token");
+    try {
+        const response = await fetch(`${BASE_URL}/api/progress`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error("Failed to fetch progress data");
+        }
+
+        const data = await response.json();
+        progressData = data.results || [];
+
+        const localProgressData = JSON.parse(localStorage.getItem("progressData")) || [];
+        const isMigrated = localStorage.getItem("progressDataMigrated") === "true";
+        const shouldMigrate = progressData.length === 0 && localProgressData.length > 0 && !isMigrated;
+
+        if (shouldMigrate) {
+            const importResponse = await fetch(`${BASE_URL}/api/progress/import`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`
+                },
+                body: JSON.stringify({ results: localProgressData })
+            });
+
+            if (importResponse.ok) {
+                const refreshed = await fetch(`${BASE_URL}/api/progress`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+
+                if (refreshed.ok) {
+                    const refreshedData = await refreshed.json();
+                    progressData = refreshedData.results || [];
+                    localStorage.setItem("progressDataMigrated", "true");
+                }
+            }
+        }
+    } catch (error) {
+        progressData = JSON.parse(localStorage.getItem("progressData")) || [];
+    }
+
+    analytics = buildAnalytics(progressData);
 
     loadingState.classList.add("hidden");
 

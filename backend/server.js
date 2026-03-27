@@ -45,6 +45,7 @@ app.use("/pages", express.static(path.join(__dirname, "../frontend/pages")));
 
 // Auth routes
 app.use("/api/auth", require("./routes/auth"));
+app.use("/api/progress", require("./routes/progress"));
 
 //HELPER: COUNT SIGNIFICANT FIGURES
 
